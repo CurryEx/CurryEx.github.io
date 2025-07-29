@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>建设中</title>
+    <title>早安午安晚安!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --bg-color-1: #6dd5ed;
             --bg-color-2: #2193b0;
             --bg-color-3: #1c4966;
             --box-bg-color: rgba(255, 255, 255, 0.15);
-            --box-border-color: rgba(255, 255, 255, 0.2);
+            --box-border-color: rgba(255, 255, 255, 0.3);
             --text-color: #f0f0f0;
+            --text-color-darker: #c0c0c0;
+            --highlight-color: #ffffff;
         }
 
         * {
@@ -24,64 +27,190 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             min-height: 100vh;
-            overflow: hidden;
+            padding: 5vh 0;
+            overflow-x: hidden;
+            overflow-y: auto;
             background: linear-gradient(-45deg, var(--bg-color-1), var(--bg-color-2), var(--bg-color-3));
             background-size: 400% 400%;
             animation: gradientAnimation 25s ease infinite;
         }
 
         @keyframes gradientAnimation {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0 50%; }
         }
 
         .container {
             width: 90%;
-            max-width: 600px;
+            max-width: 500px;
             padding: 40px 30px;
             text-align: center;
-            
+
             background: var(--box-bg-color);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px); /* 兼容 Safari */
-            
-            border-radius: 16px;
+            -webkit-backdrop-filter: blur(12px);
+
+            border-radius: 24px;
             border: 1px solid var(--box-border-color);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInCard 0.8s 0.2s ease-out forwards;
         }
 
-        .message {
+        @keyframes fadeInCard {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-picture-container {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border: 3px solid var(--box-border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .profile-picture-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .name {
+            color: var(--highlight-color);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .tagline {
             color: var(--text-color);
-            font-size: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .intro-section {
+            text-align: left;
+            margin-bottom: 25px;
+            background: rgba(0,0,0,0.1);
+            padding: 15px;
+            border-radius: 12px;
+        }
+
+        .intro-section h3 {
+            color: var(--highlight-color);
+            font-size: 1.2rem;
             font-weight: 500;
-            line-height: 1.6;
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--box-border-color);
+        }
+
+        .intro-section p {
+            color: var(--text-color);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .social-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .social-links a {
+            color: var(--text-color);
+            font-size: 1.8rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2) translateY(-3px);
+            color: var(--highlight-color);
         }
 
         @media (max-width: 480px) {
-            .message {
-                font-size: 1.2rem;
-            }
             .container {
                 padding: 30px 20px;
+            }
+            .name {
+                font-size: 1.8rem;
+            }
+            .tagline {
+                font-size: 1rem;
+            }
+            .intro-section h3 {
+                font-size: 1.1rem;
+            }
+            .intro-section p {
+                font-size: 0.95rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <p class="message">🚧 建设中, 敬请期待 🚧</p>
+<div class="container">
+
+    <div class="profile-picture-container">
+        <img src="avatar.png" alt="个人头像">
     </div>
+
+    <h1 class="name">👋</h1>
+    <h1 class="name">雷猴啊!</h1>
+    <p class="tagline">我是蛋卷, 全名是咖喱味蛋卷</p>
+
+    <div class="intro-section">
+        <h3>🚧 页面仍在建设中</h3>
+        <p>
+            可以先访问蛋卷的github页面
+        </p>
+        <br>
+        <p>
+            嗯, 如果你对技术不感兴趣的话, 大概是看不懂的说😥(x
+        </p>
+        <br>
+        <p>
+            🤔 有一说一, 真的没想好这个页面要怎么设计, 能看到当前这个版本的都是提前批了(((((
+        </p>
+    </div>
+
+    <ul class="social-links">
+        <li>
+            <a href="https://github.com/CurryEx/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        </li>
+        <li>
+            <!-- 替换成你的个人博客或作品集链接 -->
+            <a href="https://github.com/CurryEx/" target="_blank" title="个人网站"><i class="fas fa-globe"></i></a>
+        </li>
+    </ul>
+
+    <div class="intro-section">
+        <h3>😆 关于蛋卷</h3>
+        <p>
+            蛋卷这个名字的来由是广东那边经常会在礼品中见到的"元朗蛋卷", 蛋卷很喜欢吃蛋卷, 所以在很久前便定下了这个名字.
+        </p>
+        <br>
+        <p>
+            什么? 为什么是咖喱味的蛋卷? 这就要进一步解锁啦😋🤤
+        </p>
+    </div>
+
+</div>
 
 </body>
 </html>
